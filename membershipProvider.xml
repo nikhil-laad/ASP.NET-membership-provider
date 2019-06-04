@@ -1,0 +1,21 @@
+<connectionStrings>
+	<add name = "SqlConn" connectionString = "Data Source=localhost; Integrated Security=SSPI; Initial Catalog=aspnetdb;"/>
+</connectionStrings>
+
+<system.web>
+	<!--Configure the sql membership provider-->
+	<membership defaultProvider="SQLMembershipprovider" userIsOnline TimeWindow = "15">
+	<providers>
+	<clear/>
+		<add 
+			name = "SQLMembershipprovider"
+			type = "System.Web.Security.SqlMembershipProvider"
+			connectionStringName = "SqlConn"
+			applicationName = "MemberShipAndRoleProviderSample"
+			enablePasswordRetrieval = "false"
+			enablePasswordReset = "false"
+			requiresQuestionAndAnswer = "false"
+			requiresUniqueEmail = "true"
+			passwordFormat = "Hashed"/>
+	</providers>
+	</membership>
